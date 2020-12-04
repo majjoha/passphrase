@@ -1,0 +1,44 @@
+name:                passphrase
+version:             0.1.0.0
+github:              "majjoha/passphrase"
+license:             ISC
+author:              "Mathias Jean Johansen"
+maintainer:          "mathias@mjj.io"
+copyright:           "Copyright (c) 2020 Mathias Jean Johansen"
+
+extra-source-files:
+- README.md
+- LICENSE
+
+description:         Please see the README on GitHub at <https://github.com/majjoha/passphrase#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  passphrase-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - passphrase
+
+tests:
+  passphrase-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
+    dependencies:
+    - passphrase
+    - hspec
+    - hspec-discover
