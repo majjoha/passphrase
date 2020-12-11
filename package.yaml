@@ -10,6 +10,8 @@ extra-source-files:
 - README.md
 - LICENSE
 
+data-files: data/eff-large-wordlist.txt
+
 description:         Please see the README on GitHub at <https://github.com/majjoha/passphrase#readme>
 
 dependencies:
