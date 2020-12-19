@@ -24,7 +24,7 @@ library:
   source-dirs: src
 
 executables:
-  passphrase-exe:
+  passphrase:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
