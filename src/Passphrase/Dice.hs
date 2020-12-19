@@ -3,11 +3,11 @@ module Passphrase.Dice
   , rollDice
   ) where
 
-import           Control.Monad (replicateM)
-import           System.Random
+import           Control.Monad          (replicateM)
+import           Crypto.Number.Generate (generateBetween)
 
-joinDigits :: [Int] -> Int
-joinDigits = foldl ((+) . (* 10)) 0
+joinDigits :: [Integer] -> Int
+joinDigits d = foldl ((+) . (* 10)) 0 $ map (\x -> fromInteger x :: Int) d
 
-rollDice :: Int -> Int -> Int -> IO [Int]
-rollDice n start end = replicateM n $ randomRIO (start, end)
+rollDice :: Int -> Integer -> Integer -> IO [Integer]
+rollDice n start end = replicateM n $ generateBetween start end
