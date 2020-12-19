@@ -1,6 +1,8 @@
+{-# LANGUAGE NoImplicitPrelude #-}
 module Passphrase.DiceSpec (spec) where
 
 import           Passphrase.Dice
+import           RIO
 import           Test.Hspec
 
 spec :: Spec
