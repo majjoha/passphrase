@@ -10,7 +10,7 @@ import           RIO
 import qualified RIO.List               as L
 
 joinDigits :: [Integer] -> Int
-joinDigits digits = L.foldl ((+) . (* 10)) 0 $ map fromInteger digits
+joinDigits digits = fromIntegral $ L.foldl ((+) . (* 10)) 0 digits
 
 rollDice :: Int -> Integer -> Integer -> IO [Integer]
 rollDice n start end = replicateM n $ generateBetween start end
