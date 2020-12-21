@@ -13,4 +13,4 @@ joinDigits :: [Integer] -> Int
 joinDigits digits = fromIntegral $ L.foldl ((+) . (* 10)) 0 digits
 
 rollDice :: Int -> Integer -> Integer -> IO [Integer]
-rollDice n start end = replicateM n $ generateBetween start end
+rollDice rolls start end = replicateM rolls $ generateBetween start end
