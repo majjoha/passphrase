@@ -12,7 +12,7 @@ import qualified RIO.Map         as Map
 
 passphrase :: String -> [[Integer]] -> String
 passphrase wordlist dice =
-  unwords $ map (\index -> Map.findWithDefault "" index wordMap) indices
+  unwords $ map (flip (Map.findWithDefault "") wordMap) indices
     where
       indices = map joinDigits dice
       wordMap = Map.fromList $ map (toTuple . words) $ lines wordlist
