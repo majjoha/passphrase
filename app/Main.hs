@@ -19,17 +19,17 @@ defaultWordlist = "data/eff-large-wordlist.txt"
 arguments :: Parser Arguments
 arguments = Arguments
   <$> wordlistFilePathArgument
-  where
-    wordlistFilePathArgument =
-      strArgument $
-           help "Word list file"
-        <> value defaultWordlist
-        <> metavar "WORDFILE"
+    where
+      wordlistFilePathArgument =
+        strArgument $
+          help "Word list file"
+          <> value defaultWordlist
+          <> metavar "WORDFILE"
 
 argumentsInfo :: ParserInfo Arguments
 argumentsInfo =
   info (helper <*> arguments) $
-       fullDesc
+    fullDesc
     <> progDesc "Strong six-word Diceware passphrase generator"
 
 main :: IO ()
