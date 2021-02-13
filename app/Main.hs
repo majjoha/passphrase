@@ -22,9 +22,9 @@ arguments = Arguments
     where
       wordlistFilePathArgument =
         strArgument $
-          help "Word list file"
+          help "Wordlist file"
           <> value defaultWordlist
-          <> metavar "WORDFILE"
+          <> metavar "WORDLIST"
 
 argumentsInfo :: ParserInfo Arguments
 argumentsInfo =
