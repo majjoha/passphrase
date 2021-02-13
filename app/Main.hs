@@ -28,7 +28,7 @@ argumentsInfo :: ParserInfo Arguments
 argumentsInfo =
   info (helper <*> arguments) $
        fullDesc
-    <> progDesc "Diceware passphrase generator"
+    <> progDesc "Strong six-word Diceware passphrase generator"
 
 arguments :: Parser Arguments
 arguments = Arguments
