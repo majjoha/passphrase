@@ -9,7 +9,7 @@ import           Passphrase          (passphrase, rollDice)
 import           RIO
 import qualified RIO.Text            as T
 
-data Arguments = Arguments
+newtype Arguments = Arguments
   { argumentsWordlist :: FilePath
   }
 
