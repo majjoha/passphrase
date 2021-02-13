@@ -28,7 +28,6 @@ argumentsInfo :: ParserInfo Arguments
 argumentsInfo =
   info (helper <*> arguments) $
        fullDesc
-    <> header "Passphrase"
     <> progDesc "Diceware passphrase generator"
 
 arguments :: Parser Arguments
