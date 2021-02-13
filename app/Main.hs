@@ -10,7 +10,7 @@ import           RIO
 import qualified RIO.Text            as T
 
 data Arguments = Arguments
-  { wordlistFilePath :: FilePath
+  { argumentsWordlist :: FilePath
   }
 
 defaultWordlist :: FilePath
@@ -35,7 +35,7 @@ argumentsInfo =
 main :: IO ()
 main = do
   Arguments {..} <- execParser argumentsInfo
-  wordlist <- T.unpack <$> readFileUtf8 wordlistFilePath
+  wordlist <- T.unpack <$> readFileUtf8 argumentsWordlist
   dice <- replicateM 6 $ rollDice 5 1 6
   runSimpleApp $ do
     logInfo . display . T.pack $ passphrase wordlist dice
