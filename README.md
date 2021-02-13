@@ -27,7 +27,8 @@ numbers.
 
 ## Usage
 * Build the project: `stack build`.
-* Generate a passphrase: `stack exec -- passphrase [WORDLIST]`.
+* Generate a passphrase: `stack exec -- passphrase [WORDLIST] [-n LENGTH]`.
+
 
 To run the test suite, run `stack test`.
 
