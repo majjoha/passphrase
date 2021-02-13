@@ -16,20 +16,6 @@ data Arguments = Arguments
 defaultWordlist :: FilePath
 defaultWordlist = "data/eff-large-wordlist.txt"
 
-main :: IO ()
-main = do
-  Arguments {..} <- execParser argumentsInfo
-  wordlist <- T.unpack <$> readFileUtf8 wordlistFilePath
-  dice <- replicateM 6 $ rollDice 5 1 6
-  runSimpleApp $ do
-    logInfo . display . T.pack $ passphrase wordlist dice
-
-argumentsInfo :: ParserInfo Arguments
-argumentsInfo =
-  info (helper <*> arguments) $
-       fullDesc
-    <> progDesc "Strong six-word Diceware passphrase generator"
-
 arguments :: Parser Arguments
 arguments = Arguments
   <$> wordlistFilePathArgument
@@ -39,3 +25,17 @@ arguments = Arguments
            help "Word list file"
         <> value defaultWordlist
         <> metavar "WORDFILE"
+
+argumentsInfo :: ParserInfo Arguments
+argumentsInfo =
+  info (helper <*> arguments) $
+       fullDesc
+    <> progDesc "Strong six-word Diceware passphrase generator"
+
+main :: IO ()
+main = do
+  Arguments {..} <- execParser argumentsInfo
+  wordlist <- T.unpack <$> readFileUtf8 wordlistFilePath
+  dice <- replicateM 6 $ rollDice 5 1 6
+  runSimpleApp $ do
+    logInfo . display . T.pack $ passphrase wordlist dice
