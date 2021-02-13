@@ -1,13 +1,13 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE RecordWildCards   #-}
 module Main where
 
-import           Control.Monad (replicateM)
+import           Control.Monad       (replicateM)
 import           Options.Applicative
-import           Passphrase    (passphrase, rollDice)
+import           Passphrase          (passphrase, rollDice)
 import           RIO
-import qualified RIO.Text      as T
+import qualified RIO.Text            as T
 
 data Arguments = Arguments
   { wordlistFilePath :: FilePath
