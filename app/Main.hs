@@ -42,7 +42,7 @@ argumentsInfo :: ParserInfo Arguments
 argumentsInfo =
   info (arguments <**> helper) $
     fullDesc
-    <> progDesc "Strong six-word Diceware passphrase generator"
+      <> progDesc "Strong Diceware passphrase generator"
 
 main :: IO ()
 main = do
